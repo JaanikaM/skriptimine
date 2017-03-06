@@ -4,5 +4,5 @@
 #
 for rida in $(cat fail)
 do
-  echo $rida | sed 's/:/ /g'
-done
+  echo $rida | sed 's/:/,/g'
+done < fail
