@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+# Jaanika Müürisepp
+# Failide kustutamine kasutaja poolt
+#
+echo "Sisesta failinimi, mida soovite kustutada: "
+read failinimi
+if [ -f $failinimi ]; then
+ rm -f $failinimi
+else
+echo "Sellise nimega faili ei eksisteeri"
+fi
+echo "Kataloogis on veel sellised failid: "
+ls
