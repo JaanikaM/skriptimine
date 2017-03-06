@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+# Failist info lugemine
+#
+for rida in $(cat fail)
+do
+  echo $rida | sed 's/:/ /g'
+done
