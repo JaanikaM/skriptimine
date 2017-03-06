@@ -1,15 +1,16 @@
 #!/bin/bash
 #
-# Failist info lugemine
+# Kasutaja sisendis sõnade lugemine
 #
-while read rida
+# määrame palju kokku alguses sõnu
+kokku=0
+# loeme kasutaja sisend
+echo -n "Sisesta lause: "
+read lause
+for sona in $lause
 do
-  #loome iga rida : märkidega
-  # ja teisendame selle nii, et rida oleks tühikutega
-  rida=$(echo $rida | sed 's/:/ /g')
-  # tühikutega rida on lihtne sõnadeks lõigata for tsükliga
-  for sona in $rida
-  do
-  echo $sona # trükime iga sõna välja
-  done
-done < fail
+  # echo $sona
+  kokku=$(($kokku + 1))
+done
+echo "Lause koosneb $kokku sõnast."
+
