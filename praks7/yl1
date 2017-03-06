@@ -5,15 +5,31 @@
 if [ $# -ne 1 ]
 then
   echo "Kasutusjuhend: $0 failinimi"
-  echo "Näiteks $0 test.txt"
+  echo "Näiteks: $0 test.txt"
   exit 1
 else
   failinimi=$1
-  echo $failinimi
-  # kui eelmine käsk - touch nimi on ok - $? on 0
-  if [ $? -eq 0 ]; then
-    echo "Fail $failinimi on loodud"
-  exit 0
+  # kontrollime antud nimega faili olemasolu
+  if [ -f $failinimi ]; then
+    echo "Fail $failinimi on juba olemas"
+     # kontrollime, kas fail on sisuga või mitte
+     if ! [ -s $failinimi ]; then
+       echo "Antud fail on tühi"
+     else
+       echo "Antud fail ei ole tühi"
+     fi
+      echo "Kui ei soovi ümber kirjutada,"
+      read -p "sisesta failinimi " uusnimi
+      fi
+      # lisame uue faili nime kontrolli
+      if [ -n "$uusnimi" ]; then
+        failinimi=$uusnimi
+      fi
+      touch $failinimi
+      # kui eelmine käsk -touch nimi on ok - $? on 0
+      if [ $? -eq 0 ]; then
+        echo "Fail $failinimi on loodud"
+        exit 0
  else
    echo "Faili $failinimi loomisel on probleem"
    exit 1
