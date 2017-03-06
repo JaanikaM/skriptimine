@@ -2,8 +2,13 @@
 #
 # numbrite väljastamine ja summeerimine
 #
+sunna=0
 for((n = 1; n <= 5; n++))
 do
-  echo $n
-done 
+  echo -n $n
+  summa=$(($summa + $n))
+  echo " summa = $summa"
+done
+echo "Arvude summa on $summa"
+
 
