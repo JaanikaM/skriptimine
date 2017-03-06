@@ -1,0 +1,28 @@
+#!/bin/bash
+#
+# Jaanika Müürisepp
+# Menüü väljastamine kommentaariga
+# Numbritele väärtused
+for((number=1;number<4;number++))
+do
+# Avame menüüd
+cat menu$number.txt
+done
+# Pakume valiku
+echo "Please choose a number ( 1 or 2 or 3): "
+read number
+clear #Puhastame ekraani, et oleks mugavam lugeda
+# Numbri valimisel väljastatakse järgnev
+case $number in
+1)	echo -e "\nStick to your ribs.\n	Watch your cholesterol!.\n	Enjoy your meal!" 
+	;;
+2)	echo -e "\n 	British are coming!\n Enjoy your meal!"
+	;;
+3)	echo -e "\n	Healthy foods...\n	 Dieting is so boring.\n	Enjoy your meal!"
+	;;
+*)	echo -e "Sisestage number 1, 2 või 3"
+	;;
+esac
+echo -n "Lõpetamiseks vajutage ENTER:"
+read enter
+exit
