@@ -8,6 +8,8 @@ echo -n "Sisesta kaal (kg)"
 read m
 echo -n "Sisesta pikkus (m)"
 read h
+# kontrollime, et sisestatud väärtused ei ole tühjad
+if [ -n "$m" ] && [ -n "$h" ]; then
 # arvutame oma kehamassi indeksi
 # i = m / h^2
 i=$(echo "scale=2;$m/$h^2" | bc)
@@ -38,4 +40,7 @@ elif [ $rasvumine_t -eq 1 ]; then
   echo "Palun leidke abi kaalu langetamisel"
 else
   echo "Probleem skripti kasutamisega"
+fi
+else
+  echo "mass ja pikkus peavad olema väärtustatud"
 fi
