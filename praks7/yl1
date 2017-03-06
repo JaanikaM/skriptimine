@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+# faili loomine
+#
+if [ $# -ne 1 ]
+then
+  echo "Kasutusjuhend: $0 failinimi"
+  echo "Näiteks $0 test.txt"
+  exit 1
+else
+  failinimi=$1
+  echo $failinimi
+  exit 0
+fi
