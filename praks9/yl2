@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# Failist info lugemine
+#
+while read rida
+do
+ #loome iga rida : märkidega
+ # ja teisendame selle nii, et rida oleks tühikutega
+ rida=$(echo $rida | sed 's/:/ /g')
+# tühikutega rida on lihtne sõnadeks lõigata for tsükliga
+for sona in $rida
+do
+echo $sona # trükime iga sõna välja
+done
+done < fail
