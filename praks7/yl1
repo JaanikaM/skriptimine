@@ -10,5 +10,12 @@ then
 else
   failinimi=$1
   echo $failinimi
+  # kui eelmine käsk - touch nimi on ok - $? on 0
+  if [ $? -eq 0 ]; then
+    echo "Fail $failinimi on loodud"
   exit 0
+ else
+   echo "Faili $failinimi loomisel on probleem"
+   exit 1
+  fi
 fi
