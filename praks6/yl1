@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+# Kehamassiindeksi arvutamine
+#
+echo -n "Sisesta eesnimi ja perenimi"
+read eesnimi perenimi
+echo -n "Sisesta kaal (kg)"
+read m
+echo -n "Sisesta pikkus (m)"
+read h 
+# arvutame oma kehamassi indeksi
+# i = m / h^2
+i=$(echo "scale=2;$m/$h^2" | bc)
+# väljastamine
+echo "Boss $eesnimi $perenimi, "
+echo "Teie kehamassiideks on $i"
+echo "Te näete võrratu välja :) "
