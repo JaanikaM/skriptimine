@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+# numbrite väljastamine ja summeerimine
+#
+for((n = 1; n <= 5; n++))
+do
+  echo $n
+done 
+
