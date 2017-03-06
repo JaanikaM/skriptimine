@@ -9,4 +9,5 @@ echo "Sisesta b-kylje väärtus: "
 read b
 # arvutused
 # c = sqrt(a^2+b^2)
-echo "scale=3;sqrt($a^2+$b^2)" | bc # bc arvutusvalem 
+c=$(echo "scale=3;sqrt($a^2+$b^2)" | bc) # bc arvutusvalem 
+echo "c = $c"
