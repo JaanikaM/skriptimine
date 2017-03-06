@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+# arvu positiivsuse/negatiivsuse kontroll
+#
+# lubame kasutajale sisestada arvu väärtuse
+#
+echo -n "Sisesta suvaline arv: "
+read n
+if [ $n -gt 0 ]
+then
+echo "Arv on positiivne"
+else
+if [ $n -eq 0 ]
+then 
+echo "Arv on neutraalne!"
+else
+echo "Arv on negatiivne!"
+fi
+fi
+
