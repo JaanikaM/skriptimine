@@ -16,5 +16,16 @@ echo -n "Vajutage ENTER"
 read a
 kuupaev=$(date +"%d.%m.%Y")
 echo "Täna on $kuupaev"
+# Väljastame kalendri
+# Vajutame ENTER klahvi
+echo -n "Vajutage ENTER"
+read a
+# kuu
+kuu=(date +"%B %Y")
+echo "Calendar of $kuu"
+echo "======="
+# kalendri muutuja
+cal | tail -n 7
+echo "======="
 #
-# skripti lõpp
+# Skripti lõpp
