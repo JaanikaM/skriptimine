@@ -7,11 +7,35 @@ read eesnimi perenimi
 echo -n "Sisesta kaal (kg)"
 read m
 echo -n "Sisesta pikkus (m)"
-read h 
+read h
 # arvutame oma kehamassi indeksi
 # i = m / h^2
 i=$(echo "scale=2;$m/$h^2" | bc)
-# väljastamine
-echo "Boss $eesnimi $perenimi, "
-echo "Teie kehamassiideks on $i"
-echo "Te näete võrratu välja :) "
+# kasutaja andmed
+echo "Tere $eesnimi $perenimi"
+echo "Teie kehamassiindeks on $i"
+# erinevad väljundid
+alakaal_t=$(echo "$i < 19" | bc)
+normaalkaal_t=$(echo "$i >= 19 && $i < 25" | bc)
+ulekaal_t=$(echo "$i >= 25 && $i < 30" | bc)
+rasvumine_t=$(echo "$i >= 30" | bc)
+# alakaal
+if [ $alakaal_t -eq 1 ]; then
+  echo "ALAKAAL"
+  echo "Alakaal iseenesest ei ole tervisele ohtlik"
+  echo "Kuid toitainete puudus võib põhjustada ohtliku terviserikke"
+# normaalkaal
+elif [ $normaalkaal_t -eq 1 ]; then
+  echo "NORMAALKAAL"
+  echo "Te näete võrratu välja ;) "
+# ülekaal
+elif [ $ulekaal_t -eq 1 ]; then
+  echo "ÜLEKAAL"
+  echo "See võib olla ohtlik!"
+# rasvumine
+elif [ $rasvumine_t -eq 1 ]; then
+  echo "RASVUMINE"
+  echo "Palun leidke abi kaalu langetamisel"
+else
+  echo "Probleem skripti kasutamisega"
+fi
