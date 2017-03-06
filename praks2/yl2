@@ -1,0 +1,12 @@
+#!/bin/kash
+#
+# kasutajate nimekiri kujul Perenimi, Eesnimi
+#
+# skripti algus
+#
+who | cut -f1 -d" " | cut -f2 -d"." > perenimi # lõikame perenimi - see on 2. element peale punkti ja salvestame faili
+who | cut -f1 -d"." | cut -f1 -d"." > eesnimi # lõikame eesnimi - see on 1. element ennem punkti ja salvestame faili
+paste -d "." perenimi, eesnimi > nimed # kleebime need failid vastavad järjekorras kokku
+cat nimed | sort | uniq # sorteerime väljund ja võtame korduvad välja
+#
+#skripti lopp
