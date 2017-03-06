@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# Kolmnurga pindala Heroni valemi abil
+#
+# loome muutujad nii, et kasutajad sisestavad väärtused ise
+echo -n "Sisesta a külje väärtus: "
+read a # sellega tekib a muutuja, mille sisse on salvestatud kasutaja sisestatud väärtus
+echo -n "Sisesta b külje väärtus: "
+read b
+# arvutused
+# p = (a + b + c)/2
+p=$(echo "scale=2;($a + $b + $c)/2" | bc)
+# s = sqrt(p(p - a)(p - c))
+s=$(echo "scale=2;sqrt($p * ($p - $a) * ($p - $b) * ($p - $c))" | bc)
+echo "pindala = $s"
