@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# numbrite väljastamine ja summa arvutamine -while
+#
+summa=0
+n=1
+while [ $n -le 5 ]
+do
+  echo $n
+  n=$(($n + 1))
+  summa=$(($summa + $n))
+done
+echo "Arvude summa on $summa"
