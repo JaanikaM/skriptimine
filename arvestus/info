@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+# Jaanika Müürisepp
+# Kasutaja tervitamine ja aja andmine
+#
+echo -n "Tere, "
+echo -n `whoami`
+echo "!"
+# Vajutame ENTER klahvi
+echo -n "Vajutage ENTER"
+read a
+kell=$(date +"%H:%M")
+echo "Kell on $kell"
+# Vajutame ENTER klahvi
+echo -n "Vajutage ENTER"
+read a
+kuupaev=$(date +"%d.%m.%Y")
+echo "Täna on $kuupaev"
+#
+# skripti lõpp
