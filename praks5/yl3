@@ -1,0 +1,34 @@
+#!/bin/bash
+#
+# Arvu positiivsuse kontoll
+#
+# kasuta käsurealised parameetrid arvude sisestamiseks
+# kontrollime, kas parameetrite arv on 1
+# kui nii ei ole
+if [ $# -ne 1 ]; then
+echo "Kasutusjuhend: "
+echo "$0 arv"
+echo "Näiteks: $0 -5"
+# muidu kui kasutaja sisestab ühe parameetri
+else
+ arv=$1
+ if ! [[ $arv =~ ^[-+]?[0-9]+$ ]]; then
+ echo "Teksti sisestamine ei ole võimalik"
+else
+ # kontrollime, kas arv on paaris
+ if [ $arv -gt 0 ]; then
+   # arv on positiivne
+   echo "$arv on positiivne"
+  # muidu kui arv on väiksem kui 0
+  elif [ $arv -lt 0 ]; then
+   # arv on negatiivne
+   echo "$arv on negatiivne"
+  # kui ei ole suurem ega väiksem kui 0
+ else
+   echo "$arv on neutraalne"
+ # if lause lopp
+ fi
+# numbri või teksti kontrolli lõpp
+fi
+# välise if lause lõpp
+fi
