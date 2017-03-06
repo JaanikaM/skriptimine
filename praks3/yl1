@@ -6,4 +6,6 @@ echo '57+43' | bc
 echo '57-43' | bc
 echo '57*43' | bc
 echo 'scale=25;57/43' | bc
- 
+echo '5/4' | bc
+echo '6%4' | bc 
+echo '10^2' | bc
