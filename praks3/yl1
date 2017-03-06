@@ -1,0 +1,9 @@
+#/bin/bash
+#
+# Kalkuleerimine
+#
+echo '57+43' | bc
+echo '57-43' | bc
+echo '57*43' | bc
+echo 'scale=25;57/43' | bc
+ 
