@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# Kausta sisu väljastamine
+#
+# Tegu on hetkel jooksva kaustaga
+for nimi in $(ls)
+do
+ echo $nimi
+done
+
