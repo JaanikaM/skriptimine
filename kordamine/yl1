@@ -2,9 +2,14 @@
 #
 # Kausta sisu väljastamine
 #
-# Tegu on hetkel jooksva kaustaga
-for nimi in $(ls)
+# Sisestame kausta asukoha
+#echo -n "Sisesta kataloogi asukoht süsteemis: "
+#read kaust
+kaust=$1
+#
+for nimi in $(ls $kaust)
 do
- echo $nimi
+ if [ -f "$nimi" ]; then
+  echo "$nimi"
+ fi
 done
-
