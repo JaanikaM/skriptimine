@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+#Jaanika Müürisepp
+#
+#Kasutaja lisamise skript
+#
+clear
+if [ $(id -u) -eq 0 ]; then
+	read -p  "Sisesta kasutajanimi: " username
+	read -s -p "Sisesta parool: " password
+	egrep "^$username" /etc/passwd > /dev/null
+	if [ $? -eq 0 ]; then
+		echo "$username exists!"
+		exit 1
+	else
+		pass=(perl -e 'print crypt($ARGV[0], "password")' $password)
+		useradd -m -p $pass $username
+		[ $? -eq 0 ] && echo "Kasutaja on süsteemi lisatud!" || echo "Kasutaja loomine ebaõnnestus!"
+	fi
+else
+	echo "Ainult root saab kasutajaid lisada!"
+	exit2
+fi
