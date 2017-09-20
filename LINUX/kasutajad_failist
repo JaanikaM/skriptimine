@@ -5,18 +5,8 @@
 # syntax on
 #Skript kasutajate lisamiseks
 clear
-if [ $# -ne 1 ]; then
-  echo "Kasutusjuhend: $0 $failinimi"
-else
-  failinimi=$1
-  if [ -f $failinimi -a -r $failinimi ]; then
-   echo "Fail on korras"
-   for nimi in $(cat $failinimi)
-   do
-    # echo $rida
-    sh lisa_kasutaja $nimi
-   done
-  else
-   echo "Probleem failiga $failinimi"
-  fi
-fi
+fail=$1
+for kasutaja in $(echo  $fail)
+do
+echo sh lisa_kasutaja $kasutaja
+done
