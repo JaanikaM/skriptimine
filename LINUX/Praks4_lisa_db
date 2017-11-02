@@ -1,0 +1,19 @@
+#!/bin/bash
+#syntax on
+# Jaanika Muurisepp
+#kasutajanime ja parooli sisestamine
+mysqllogin () {
+echo "Sisesta kasutajanimi"
+read kasutaja
+#echo "Sisesta praool"
+#read parool
+mysql -u $kasutaja -p
+mysql -e "CREATE DATABASE $nimi"
+mysql
+}
+printf "Vali missugust funktsiooni kasutada.\n[1]Lisa andmebaas\n"
+read valik
+case "$valik" in
+"1")mysqllogin
+;;
+esac

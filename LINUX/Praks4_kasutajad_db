@@ -1,0 +1,23 @@
+#!/bin/bash
+# syntax on
+# Jaanika Muurisepp
+#echo 'Sisesta nimi kelle kaustu hakatakse uurima'
+#read nimi
+cat /etc/passwd | grep /home | cut -d: -f1 > Praks4_kasutajad
+while IFS= read line
+do
+nimi=$(echo "$line")
+if [ -f /home/$nimi/.my.cnf ]
+then
+echo 'fail on olemas' $nimi
+else
+echo 'faili ei olemas kasutajal' $nimi
+pass=$(pwgen -s 10 1)	
+echo 'Loon faili kasutajale' $nimi
+printf "[client]\nuser=$nimi\npassword=$pass\n" > /home/$nimi/.my.cnf
+mysql -e "CREATE DATABASE ${nimi}"
+mysql -e "CREATE USER ${nimi}@localhost IDENTIFIED BY '${pass}';"
+mysql -e "GRANT ALL PRIVILEGES ON * . * TO '${nimi}'@'localhost';"
+mysql -e "FLUSH PRIVILEGES;"
+fi
+done < Praks4_kasutajad
