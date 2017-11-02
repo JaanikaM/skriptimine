@@ -1,0 +1,14 @@
+#!/bin/bash
+#syntax on
+# Jaanika Muurisepp
+#Prindib kuupäeva,kellaaja ning salvestab vajalikud andmed faili #sisse.
+Kokku=$(date)
+Kuu=`date | awk -F" " '{ print $2 }'`;
+Kuupaev=`date | awk -F" " '{ print $3 }'`;
+Paev=`date | awk -F" " '{ print $1 }'`;
+Kellaaeg=`date | awk -F" " '{ print $4 }'`;
+Riik=`date | awk -F" " '{ print $5 }'`;
+Aasta=`date | awk -F" " '{ print $6 }'`;
+Number=`date | awk -F" " '{ print $4 }' | awk -F: '{ print $2 }'`;
+echo "Tanane kuupaev on ${Kuu} ${Kuupaev} ${Aasta}. Kell on ${Kellaaeg}. See on ${Riik} aeg."
+#/home/user/temp/proovicron${Number}.txt
